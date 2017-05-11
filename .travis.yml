@@ -7,10 +7,6 @@ cache:
     - vendor
     - $HOME/.composer/cache
     - $HOME/opt/$TRAVIS_PHP_VERSION
-addons:
-  apt:
-    packages:
-    - bc
 env:
   global:
     - WP_TRAVISCI=travis:phpunit
