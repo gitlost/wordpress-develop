@@ -6,6 +6,11 @@ cache:
     - node_modules
     - vendor
     - $HOME/.composer/cache
+    - $HOME/opt/$TRAVIS_PHP_VERSION
+addons:
+  apt:
+    packages:
+    - bc
 env:
   global:
     - WP_TRAVISCI=travis:phpunit
@@ -35,6 +40,8 @@ before_install:
       sed -i "s/yourusernamehere/root/" wp-tests-config.php
       sed -i "s/yourpasswordhere//" wp-tests-config.php
       svn checkout https://plugins.svn.wordpress.org/wordpress-importer/tags/0.6.3/ tests/phpunit/data/plugins/wordpress-importer
+      echo "Installing ImageMagick and Imagick..."
+      ./tests/phpunit/bin/install-imagick.sh
   fi
 - |
   if [[ "$WP_TRAVIS_OBJECT_CACHE" == "true" ]]; then
@@ -86,6 +93,7 @@ before_script:
 - phpenv versions
 - php --version
 - php -m
+- php --info | grep -i '\(^\w\+$\|version\)'
 - npm --version
 - node --version
 - which phpunit
@@ -94,6 +102,8 @@ before_script:
 - grunt --version
 - git --version
 - svn --version
+- identify -version
+- gs --version
 - locale -a
 script: grunt $WP_TRAVISCI
 notifications:
