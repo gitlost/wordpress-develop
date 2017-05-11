@@ -33,6 +33,8 @@ install_imagemagick() {
 	make
 	make install
 
+	if [[ -d "$HOME/opt/$TRAVIS_PHP_VERSION/share/doc" ]]; then rm -rf "$HOME/opt/$TRAVIS_PHP_VERSION/share/doc"; fi
+
 	cd "$TRAVIS_BUILD_DIR"
 }
 
