@@ -516,7 +516,7 @@ class Tests_Image_Editor_Imagick extends WP_Image_UnitTestCase {
 		// Need ImageMagick version >= 6.7.0-10, see #40537.
 		$imagick_version = Imagick::getVersion();
 		if ( preg_match( '/[0-9]+\.[0-9]+\.[0-9]+-[0-9]+/', $imagick_version['versionString'], $matches ) && version_compare( $matches[0], '6.7.0-10', '<' ) ) {
-			$this->markTestSkipped( 'This test needs ImageMagick >= 6.7.0-10' );
+			$this->markTestSkipped( 'This test requires ImageMagick >= 6.7.0-10' );
 		}
 
 		$file = DIR_TESTDATA . '/images/transparent.png';

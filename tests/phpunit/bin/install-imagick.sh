@@ -3,12 +3,13 @@
 set -ex
 
 # ImageMagick/Imagick versions to use
-IMAGICK_VERSION='3.4.3' # Might be better to vary this also.
+IMAGEMAGICK_VERSION='6.7.0-10'
+IMAGICK_VERSION='3.4.3'
 
 if [[ $TRAVIS_PHP_VERSION == 7.1 ]]; then
 	IMAGEMAGICK_VERSION='6.9.7-10'
 elif [[ $TRAVIS_PHP_VERSION == 7.0 ]]; then
-	IMAGEMAGICK_VERSION='6.9.6-10'
+	IMAGEMAGICK_VERSION='6.9.6-8'
 elif [[ $TRAVIS_PHP_VERSION == 5.6 ]]; then
 	IMAGEMAGICK_VERSION='6.9.5-10'
 elif [[ $TRAVIS_PHP_VERSION == 5.5 ]]; then
@@ -19,8 +20,7 @@ elif [[ $TRAVIS_PHP_VERSION == 5.3 ]]; then
 	IMAGEMAGICK_VERSION='6.6.9-10'
 elif [[ $TRAVIS_PHP_VERSION == 5.2 ]]; then
 	IMAGEMAGICK_VERSION='6.5.4-10'
-else
-	IMAGEMAGICK_VERSION='6.7.0-10'
+	IMAGICK_VERSION='3.1.0'
 fi
 
 install_imagemagick() {
