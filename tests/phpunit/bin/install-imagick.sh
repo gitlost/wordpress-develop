@@ -5,8 +5,8 @@ IMAGEMAGICK_VERSION='6.7.0-10'
 
 install_imagemagick() {
 	curl -O "https://www.imagemagick.org/download/releases/ImageMagick-$IMAGEMAGICK_VERSION.tar.xz" -f
-	tar xvf "ImageMagick-$IMAGEMAGICK_VERSION.tar.gz"
-	rm "ImageMagick-$IMAGEMAGICK_VERSION.tar.gz"
+	tar xvf "ImageMagick-$IMAGEMAGICK_VERSION.tar.xz"
+	rm "ImageMagick-$IMAGEMAGICK_VERSION.tar.xz"
 	cd "ImageMagick-$IMAGEMAGICK_VERSION"
 
 	./configure --prefix="$HOME/opt/$TRAVIS_PHP_VERSION"
