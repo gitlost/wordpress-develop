@@ -420,6 +420,9 @@ class Tests_Image_Editor_Imagick extends WP_Image_UnitTestCase {
 	 * Test rotating an image 180 deg
 	 */
 	public function test_rotate() {
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			$this->markTestSkipped( 'This test requires PHP >= 5.3' );
+		}
 		$file = DIR_TESTDATA . '/images/gradient-square.jpg';
 
 		$imagick_image_editor = new WP_Image_Editor_Imagick( $file );
@@ -439,6 +442,9 @@ class Tests_Image_Editor_Imagick extends WP_Image_UnitTestCase {
 	 * Test flipping an image
 	 */
 	public function test_flip() {
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			$this->markTestSkipped( 'This test requires PHP >= 5.3' );
+		}
 		$file = DIR_TESTDATA . '/images/gradient-square.jpg';
 
 		$imagick_image_editor = new WP_Image_Editor_Imagick( $file );

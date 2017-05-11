@@ -110,6 +110,9 @@ class Tests_Image_Editor extends WP_Image_UnitTestCase {
 	 * @ticket 6821
 	 */
 	public function test_generate_filename() {
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			$this->markTestSkipped( 'This test requires PHP >= 5.3' );
+		}
 
 		// Get an editor
 		$editor = wp_get_image_editor( DIR_TESTDATA . '/images/canola.jpg' );
@@ -142,6 +145,9 @@ class Tests_Image_Editor extends WP_Image_UnitTestCase {
 	 * @ticket 6821
 	 */
 	public function test_get_size() {
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			$this->markTestSkipped( 'This test requires PHP >= 5.3' );
+		}
 
 		$editor = wp_get_image_editor( DIR_TESTDATA . '/images/canola.jpg' );
 
@@ -165,6 +171,9 @@ class Tests_Image_Editor extends WP_Image_UnitTestCase {
 	 * @ticket 6821
 	 */
 	public function test_get_suffix() {
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			$this->markTestSkipped( 'This test requires PHP >= 5.3' );
+		}
 		$editor = wp_get_image_editor( DIR_TESTDATA . '/images/canola.jpg' );
 
 		// Size should be false by default
