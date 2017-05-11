@@ -4,8 +4,8 @@
 IMAGEMAGICK_VERSION='6.7.0-10'
 
 install_imagemagick() {
-	curl -O "https://www.imagemagick.org/download/releases/ImageMagick-$IMAGEMAGICK_VERSION.tar.gz" -f
-	tar xzf "ImageMagick-$IMAGEMAGICK_VERSION.tar.gz"
+	curl -O "https://www.imagemagick.org/download/releases/ImageMagick-$IMAGEMAGICK_VERSION.tar.xz" -f
+	tar xvf "ImageMagick-$IMAGEMAGICK_VERSION.tar.gz"
 	rm "ImageMagick-$IMAGEMAGICK_VERSION.tar.gz"
 	cd "ImageMagick-$IMAGEMAGICK_VERSION"
 
